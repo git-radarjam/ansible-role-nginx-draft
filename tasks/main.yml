@@ -50,3 +50,5 @@
       </body>
       </html>
     dest: /usr/share/nginx/html/index.html
+- name: includes the exporter.yml
+  include_tasks: exporter.yml
