@@ -12,12 +12,12 @@
 - name: Download the nginx exporter repo
   get_url:
     url: https://github.com/nginxinc/nginx-prometheus-exporter/releases/download/v0.3.0/nginx-prometheus-exporter-0.3.0-linux-amd64.tar.gz
-    dest: ~
+    dest: /tmp/
     mode: 0555
   become: true
 - name: Extract nginx exporter
   unarchive:
-    src: ~/nginx-prometheus-exporter-0.3.0-linux-amd64.tar.gz
+    src: /tmp/nginx-prometheus-exporter-0.3.0-linux-amd64.tar.gz
     dest: /usr/local/bin
     remote_src: true
   become: true
