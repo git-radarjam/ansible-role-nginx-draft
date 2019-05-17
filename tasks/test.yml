@@ -12,7 +12,7 @@
   action: uri url=http://localhost:80 status_code=200
   register: webpage
 
-- name: Checks if status code has been met 
+- name: Checks if status code has been met
   fail:
     msg: 'service is not happy'
   when: "200 != webpage.status"
