@@ -1,0 +1,18 @@
+---
+- name: Creates URI object for localhost:9113/metrics
+  action: uri url=http://localhost:9113/metrics return_content=yes
+  register: webpage
+
+- name: Checks if nginx_up is in webpage.content or not
+  fail:
+    msg: 'service is not happy'
+  when: "'nginx_up 1' not in webpage.content"
+
+- name: Creates URI object for localhost:80
+  action: uri url=http://localhost:80 status_code=200
+  register: webpage
+
+- name: Checks if status code has been met 
+  fail:
+    msg: 'service is not happy'
+    when: "webpage.status not equal 200"
