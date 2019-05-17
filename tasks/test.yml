@@ -15,4 +15,4 @@
 - name: Checks if status code has been met 
   fail:
     msg: 'service is not happy'
-  when: "webpage.status not equal 200"
+  when: "200 != webpage.status"
